@@ -60,6 +60,13 @@
                                             <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
                                                 <h6 class="mb-0">€ 44.00</h6>
                                             </div>
+
+                                            <div class="col-lg col-sm-6 d-flex justify-content-sm-center justify-content-md-start">
+                                                <div class="float-md-end">
+                                                    <a asp-controller="Cart" asp-action="Remove" asp-route-id="@cartItem.Id" class="btn btn-light border text-danger icon-hover-danger">Remove</a>
+                                                </div>
+                                            </div>
+
                                             <div class="col-md-1 col-lg-1 col-xl-1 text-end">
                                                 <a href="#!" class="text-muted"><i class="fas fa-times"></i></a>
                                             </div>
@@ -130,7 +137,7 @@
     </div>
 </section>
 
-@section Scipts{
+@section Scripts{
     <script>
         function submitCart(productId) {
             // Get the select element for the given product ID
@@ -144,7 +151,7 @@
             const form = document.createElement('form');
 
             form.method = 'GET';
-            form.action = '/cart';
+            form.action = '/Cart/UpdateQty';
 
             // Create hidden input fields for product ID and quantity
             const productInput = document.createElement('input');
