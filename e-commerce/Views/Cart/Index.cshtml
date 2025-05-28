@@ -21,12 +21,26 @@
 
                                         <div class="row mb-4 d-flex justify-content-between align-items-center">
                                             <div class="col-md-2 col-lg-2 col-xl-2">
-                                                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img5.webp"
-                                                     class="img-fluid rounded-3" alt="Cotton T-shirt">
+                                                @if (!string.IsNullOrEmpty(cartItem.Product.Image))
+                                                {
+                                                    <img src="@cartItem.Product.Image"
+                                                         class="img-fluid rounded-3"
+                                                         alt="@cartItem.Product.Name"
+                                                         style="max-height: 100px; object-fit: cover;">
+                                                }
+                                                else
+                                                {
+                                                    <!-- Imagen por defecto si no hay imagen del producto -->
+                                                    <div class="bg-light rounded-3 d-flex align-items-center justify-content-center"
+                                                         style="height: 100px;">
+                                                        <i class="fas fa-image text-muted fa-2x"></i>
+                                                    </div>
+                                                }
                                             </div>
                                             <div class="col-md-3 col-lg-3 col-xl-3">
-                                                <h6 class="text-muted">Shirt</h6>
-                                                <h6 class="mb-0">Cotton T-shirt</h6>
+                                                <a href="#" class="nav-link">@cartItem.Product.Name</a>
+@*                                                 <h6 class="text-muted">Shirt</h6>
+                                                <h6 class="mb-0">Cotton T-shirt</h6> *@
                                             </div>
 
                                             <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
